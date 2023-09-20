@@ -23,5 +23,12 @@ public class UserResource {
     }
 
     @PostMapping("/users")
-    public User createUser(@RequestBody User user) { return service.save(user); }
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User savedUser = service.save(user);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
+                .toUri();
+        return ResponseEntity.created(location).build();
+    }
 }
