@@ -13,10 +13,10 @@ public class UserDaoService {
     private static int usersIdCount = 0;
 
     static {
-        users.add(new User(++usersIdCount, "Jered", LocalDate.now().minusYears(28)));
-        users.add(new User(++usersIdCount, "Billy", LocalDate.now().minusYears(23)));
-        users.add(new User(++usersIdCount, "Frank", LocalDate.now().minusYears(35)));
-        users.add(new User(++usersIdCount, "Amy", LocalDate.now().minusYears(26)));
+        users.add(new User(++usersIdCount, "Jered", LocalDate.now().minusYears(28), "12345"));
+        users.add(new User(++usersIdCount, "Billy", LocalDate.now().minusYears(23), "hello"));
+        users.add(new User(++usersIdCount, "Frank", LocalDate.now().minusYears(35), "qwerty"));
+        users.add(new User(++usersIdCount, "Amy", LocalDate.now().minusYears(26), "my-password"));
     }
 
     public List<User> findAll() {

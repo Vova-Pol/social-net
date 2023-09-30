@@ -1,5 +1,6 @@
 package com.vladimir.socialnetrestapi.socialnet.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -14,10 +15,14 @@ public class User {
     @Past(message = "Birth Date should be in past")
     private LocalDate birthDate;
 
-    public User(Integer id, String name, LocalDate birthDate) {
+    @JsonIgnore
+    private String password;
+
+    public User(Integer id, String name, LocalDate birthDate, String password) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -42,6 +47,14 @@ public class User {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
