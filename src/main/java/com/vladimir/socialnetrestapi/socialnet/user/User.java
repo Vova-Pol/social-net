@@ -24,6 +24,8 @@ public class User {
     @JsonIgnore
     private String password;
 
+    protected User() {}
+
     public User(Integer id, String name, LocalDate birthDate, String password) {
         this.id = id;
         this.name = name;
